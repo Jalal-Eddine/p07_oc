@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -32,6 +34,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     #[Groups(["write"])]
     private $password;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserClient::class, orphanRemoval: true)]
+    private $userClients;
+
+    public function __construct()
+    {
+        $this->userClients = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -101,5 +111,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection<int, UserClient>
+     */
+    public function getUserClients(): Collection
+    {
+        return $this->userClients;
+    }
+
+    public function addUserClient(UserClient $userClient): self
+    {
+        if (!$this->userClients->contains($userClient)) {
+            $this->userClients[] = $userClient;
+            $userClient->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserClient(UserClient $userClient): self
+    {
+        if ($this->userClients->removeElement($userClient)) {
+            // set the owning side to null (unless already changed)
+            if ($userClient->getUser() === $this) {
+                $userClient->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }
