@@ -36,6 +36,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserClient::class, orphanRemoval: true)]
+    #[Groups(["read"])]
     private $userClients;
 
     public function __construct()
