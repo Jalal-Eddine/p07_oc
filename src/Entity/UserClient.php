@@ -9,7 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UserClientRepository::class)]
 #[ApiResource(
-    attributes: ["security" => "is_granted('ROLE_USER') or object.owner == user"]
+    attributes: ["security" => "is_granted('ROLE_USER') or object.owner == user"],
+    paginationItemsPerPage: 4
 )]
 class UserClient
 {
