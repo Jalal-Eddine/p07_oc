@@ -7,7 +7,9 @@ use App\Repository\PhoneRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PhoneRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    paginationItemsPerPage: 6
+)]
 class Phone
 {
     #[ORM\Id]
