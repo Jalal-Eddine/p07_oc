@@ -8,7 +8,9 @@ use App\Repository\UserClientRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UserClientRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    attributes: ["security" => "is_granted('ROLE_USER') or object.owner == user"]
+)]
 class UserClient
 {
     #[ORM\Id]
