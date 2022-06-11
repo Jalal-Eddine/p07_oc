@@ -1,6 +1,6 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e93b7b6486eb4d58ba2e54db25fa432a)](https://www.codacy.com/gh/Jalal-Eddine/p07_oc/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Jalal-Eddine/p07_oc&amp;utm_campaign=Badge_Grade)
 
-Projet 7 API-REST Openclarooms Bilmo
+Projet 7 API-REST Openclassrooms Bilmo
 
 ## Env project development :
 ```
@@ -10,7 +10,7 @@ Projet 7 API-REST Openclarooms Bilmo
 
 ```
 
-# Install :
+# Installation :
 ## Clone repo :
 ```
 https://github.com/Jalal-Eddine/p07_oc.git
