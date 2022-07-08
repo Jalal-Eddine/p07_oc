@@ -5,3 +5,25 @@ api_platform:
         json: ['application/merge-patch+json']
     swagger:
         versions: [3]
+    # http_cache:
+    #     invalidation:
+    #         enabled: true
+    #         varnish_urls: ['%env(VARNISH_URL)%']
+    #     public: true
+    # defaults:
+    #     cache_headers:
+    #         max_age: 0
+    #         shared_max_age: 3600
+    #         vary: ['Content-Type', 'Authorization', 'Origin']
+    exception_to_status:
+            # The 4 following handlers are registered by default, keep those lines to prevent unexpected side effects
+            Symfony\Component\Serializer\Exception\ExceptionInterface: 400 # Use a raw status code (recommended)
+            ApiPlatform\Core\Exception\InvalidArgumentException: !php/const Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST
+            ApiPlatform\Core\Exception\FilterValidationException: 400
+            Doctrine\ORM\OptimisticLockException: 409
+
+            # Validation exception
+            ApiPlatform\Core\Bridge\Symfony\Validator\Exception\ValidationException: !php/const Symfony\Component\HttpFoundation\Response::HTTP_UNPROCESSABLE_ENTITY
+
+            # Custom mapping
+            App\Exception\ProductNotFoundException: 404 # Here is the handler for our custom exception
