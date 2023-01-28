@@ -1,12 +1,12 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e93b7b6486eb4d58ba2e54db25fa432a)](https://www.codacy.com/gh/Jalal-Eddine/p07_oc/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Jalal-Eddine/p07_oc&amp;utm_campaign=Badge_Grade)
-
-Projet 7 API-REST Openclassrooms Bilmo
+# Projet 7 API-REST Openclassrooms Bilmo
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e93b7b6486eb4d58ba2e54db25fa432a)](https://www.codacy.com/gh/Jalal-Eddine/p07_oc/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Jalal-Eddine/p07_oc&amp;utm_campaign=Badge_Grade)<br>
+[![SymfonyInsight](https://insight.symfony.com/projects/bbb4ef13-2254-4ea1-b50b-6c4889fef19e/mini.svg)](https://insight.symfony.com/projects/bbb4ef13-2254-4ea1-b50b-6c4889fef19e)
 
 ## Env project development :
 ```
-- PHP : 8.0.2
-- Symfony : 6.0
-- Composer : 2.3.5
+- PHP : 8.2.1
+- Symfony : 6.2.5
+- Composer : 2.5.1
 
 ```
 
